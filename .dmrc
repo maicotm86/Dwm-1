@@ -1,0 +1,4 @@
+[Desktop]
+#Session=icewm-session
+Session=dwm
+Language=en_US.UTF-8

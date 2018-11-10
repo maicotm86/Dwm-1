@@ -1,0 +1,5 @@
+#!/bin/bash
+st			\
+-n Root-Terminal	\
+-t Root-terminal	\
+-e sudo bash

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<special-files>
+  <rule match="/home/void/Devices/Media">
+    <icon>/usr/share/icons/Arc/devices/48/media-flash.png</icon>
+  </rule>
+  <rule match="/home/void/Downloads">
+    <icon>/usr/share/icons/Arc/places/48/folder-download.png</icon>
+  </rule>
+  <rule match="/home/void/Packages">
+    <icon>/usr/share/icons/Arc/places/48/folder-documents.png</icon>
+  </rule>
+  <rule match="/home/void/Desktop">
+    <icon>/usr/share/icons/Arc/places/48/user-desktop.png</icon>
+  </rule>
+  <rule match="/home/void/Music">
+    <icon>/usr/share/icons/Arc/places/48/folder-music.png</icon>
+  </rule>
+  <rule match="/home/void/Documents">
+    <icon>/usr/share/icons/Arc/places/48/folder-documents.png</icon>
+  </rule>
+  <rule match="/home/void/Desktop/Android Device">
+    <icon>/usr/share/icons/Adwaita/48x48/devices/phone.png</icon>
+  </rule>
+  <rule match="/home/void/Pictures">
+    <icon>/usr/share/icons/Arc/places/48/folder-pictures.png</icon>
+  </rule>
+  <rule match="/home/void/Videos">
+    <icon>/usr/share/icons/Arc/places/48/folder-videos.png</icon>
+  </rule>
+</special-files>

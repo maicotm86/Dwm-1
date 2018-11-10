@@ -1,0 +1,52 @@
+#!/bin/bash
+
+OPTIONS="\
+ Logoff\n\
+ Suspend system\n\
+ Lockscreen\n\
+ Hibernate system\n\
+ Reboot system\n\
+ Power-off system"
+
+LAUNCHER="		\
+dmenu 			\
+-fn 'Sans-9' 		\
+-nf "#eeeeee" 		\
+-sb "#21232B"  		\
+-nb "#252730"		\
+-sf "#4084D6"		\
+-l 15 			\
+-w 185 			\
+-y 19			\
+"
+
+
+option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
+if [ ${#option} -gt 0 ]
+then
+    case $option in
+      Exit)
+        eval $1
+        ;;
+             )
+        notify-send -t 2000 "Logoff Imminent" "You are about to logoff"; sleep 2 ; pkill dwm
+        ;;
+            )
+        notify-send -t 2000 "Suspend Imminent" "You are about to suspend"; sleep 2; slock systemctl suspend -i
+        ;;
+            )
+        slock
+        ;;
+            )
+        notify-send -t 2000 "Hibernation Imminent" "You are about to hibernate"; sleep 2; systemctl hibernate
+        ;;
+            )
+        notify-send -t 2000 "Reboot Imminent" "You are about to Reboot"; sleep 2 ; systemctl reboot
+        ;;
+            )
+        notify-send -t 2000 "PowerOff Imminent" "You are about to shutdown"; sleep 2 ; systemctl poweroff
+        ;;
+      *)
+        ;;
+    esac
+fi

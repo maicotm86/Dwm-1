@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $HOME/.dwm/dwm-6.1/
+sudo make install
+reload

@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/.dwm/dwm-6.1/
+make clean
+make

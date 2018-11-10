@@ -1,0 +1,7 @@
+#!/bin/bash
+sqlmap 		\
+--sqlmap-shell 	\
+--level=5 	\
+--risk=3 	\
+--tor 		\
+--time-sec=10
