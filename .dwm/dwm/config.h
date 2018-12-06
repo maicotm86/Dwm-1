@@ -25,7 +25,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " Main", " Web", " Net", " Doc", " Term", " Media", " Desk" };
+static const char *tags[] = { "Main", "Web", "Net", "Doc", "Term", "Media", "Desk" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -97,8 +97,8 @@ static const char *ffox[]  =           { "firefox", NULL };
 static const char *file[]  =           { "rox", NULL };
 static const char *deadbeef[]  =       { "deadbeef", NULL };
 static const char *telegram[]  =       { "telegram-desktop", NULL };
-static const char *morc[] =            { "dwmenu", NULL };
-static const char *nwmgr[] =           { "cmst", NULL };
+static const char *morc[] =            { "/home/void/.dwm/morc_menu", NULL };
+static const char *nwmgr[] =           { "connman", NULL };
 static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
 static const char *sterm[] =           { "smart-terminal", NULL };
 static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
@@ -114,7 +114,7 @@ static const char *reboot[] =          { "systemctl", "reboot", NULL };
 static const char *python[] =          { "python-shell", NULL };
 static const char *aft[] =             { "android-file-transfer", NULL };
 static const char *task[] =            { "lxtask", NULL };
-static const char *rooterm[] =         { "root-terminal", NULL };
+static const char *rooterm[] =   { "root-terminal", NULL };
 //static const char *[] =              { "", NULL };
 
 static Key keys[] = {
@@ -183,10 +183,8 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-        { ClkButton,		0,		Button1,	spawn,		{.v = morc } },
-	{ ClkButton,            0,              Button2,        spawn,          {.v = file } },
-        { ClkButton,            0,              Button3,        spawn,          {.v = sessmgr } },
-        { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+        {ClkButton,		0,		Button1,	spawn,		{.v = morc } },
+	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
 	{ ClkLtSymbol,          0,      	Button4,        incnmaster,     {.i = +1 } },
@@ -205,8 +203,8 @@ static Button buttons[] = {
 	{ ClkClientWin,         Mod5Mask,       Button2,        togglefloating, {0} },
 	{ ClkClientWin,         Mod5Mask,       Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        tag,            {0} },
-        { ClkTagBar,            0,              Button2,        toggletag,      {0} },
+	{ ClkTagBar,            0,              Button3,        spawn,          {.v = morc } },
+        { ClkTagBar,            0,              Button2,        spawn,          {.v = sessmgr } },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTagBar,            0,      	Button4,        pushup,         {.i = +1 } },
