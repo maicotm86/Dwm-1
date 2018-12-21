@@ -9,7 +9,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 //static const unsigned int gappx     = 6;        /* gap pixel between windows */
-static const char buttonbar[]       = "   ";
+static const char buttonbar[]       = "        ";
 static const char *fonts[]          = { "Sans:size=8" };
 static const char dmenufont[]       = "Sans:size=10";
 static const char col_gray1[]       = "#2B2E37";
