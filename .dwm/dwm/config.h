@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "Main", "Web", "Net", "Doc", "Term", "Media", "Desk" };
+static const char *tags[] = { " Main", " Web", " Net", " Doc", " Term", " Media", " Desk" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -54,7 +54,7 @@ static const Rule rules[] = {
         { "Mate-screenshot",            NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "Lxtask",			NULL,       NULL,       0 << 0,       1,             1,           -1 },
 	{ "aft-linux-qt",  		NULL,       NULL,       1 << 6,       1,             1,           -1 },
-	{ "Easystroke",			NULL,       NULL,       0 << 0,       1,             1,           -1 },
+	{ "Apache NetBeans IDE 10.0",	NULL,       NULL,       1 << 3,       1,             0,           -1 },
         { "SmartTerm",                  NULL,       NULL,       0 << 0,       1,             1,           -1 },
 };
 
@@ -64,10 +64,10 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "Grid",      gaplessgrid }, /* first entry is default */
-	{ "Float",      NULL },    	    /* no layout function means floating behavior */
-	{ "Monocle",      monocle },
+	/* symbol      arrange function */
+	{ "Grid",      gaplessgrid },       /* first entry is default */
+	{ "Float",     NULL },    	    /* no layout function means floating behavior */
+	{ "Monocle",   monocle },
 	{ "Tile",      tile },
 };
 
@@ -96,7 +96,7 @@ static const char *ffox[]  =           { "firefox", NULL };
 static const char *file[]  =           { "rox", NULL };
 static const char *deadbeef[]  =       { "deadbeef", NULL };
 static const char *telegram[]  =       { "telegram-desktop", NULL };
-static const char *morc[] =            { "/home/void/.dwm/morc_menu", NULL };
+static const char *morc[] =            { "dwmenu", NULL };
 static const char *nwmgr[] =           { "connman", NULL };
 static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
 static const char *sterm[] =           { "smart-terminal", NULL };
@@ -113,7 +113,7 @@ static const char *reboot[] =          { "systemctl", "reboot", NULL };
 static const char *python[] =          { "python-shell", NULL };
 static const char *aft[] =             { "android-file-transfer", NULL };
 static const char *task[] =            { "lxtask", NULL };
-static const char *rooterm[] =   { "root-terminal", NULL };
+static const char *rooterm[] =         { "root-terminal", NULL };
 //static const char *[] =              { "", NULL };
 
 static Key keys[] = {
@@ -182,8 +182,10 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-        {ClkButton,		0,		Button1,	spawn,		{.v = morc } },
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+        { ClkButton,		0,		Button1,	spawn,		{.v = morc } },
+	{ ClkButton,            0,              Button2,        spawn,          {.v = file } },
+        { ClkButton,            0,              Button3,        spawn,          {.v = sessmgr } },
+        { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
 	{ ClkLtSymbol,          0,      	Button4,        incnmaster,     {.i = +1 } },
@@ -202,8 +204,8 @@ static Button buttons[] = {
 	{ ClkClientWin,         Mod5Mask,       Button2,        togglefloating, {0} },
 	{ ClkClientWin,         Mod5Mask,       Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        spawn,          {.v = morc } },
-        { ClkTagBar,            0,              Button2,        spawn,          {.v = sessmgr } },
+	{ ClkTagBar,            0,              Button3,        tag,            {0} },
+        { ClkTagBar,            0,              Button2,        toggletag,      {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTagBar,            0,      	Button4,        pushup,         {.i = +1 } },

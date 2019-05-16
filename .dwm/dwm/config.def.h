@@ -4,11 +4,11 @@
 #include "gaplessgrid.c"
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 3.5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char buttonbar[]       = "   ";
+static const char buttonbar[]       = "   ";
 static const char *fonts[]          = { "Sans:size=8" };
 static const char dmenufont[]       = "Sans:size=10";
 static const char col_gray1[]       = "#2B2E37";
@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "Main", "Web", "Net", "Doc", "Term", "Media", "Desk" };
+static const char *tags[] = { " Main", " Web", " Net", " Doc", " Term", " Media", " Desk" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -112,7 +112,7 @@ static const char *reboot[] =          { "systemctl", "reboot", NULL };
 static const char *python[] =          { "python-shell", NULL };
 static const char *aft[] =             { "android-file-transfer", NULL };
 static const char *task[] =            { "lxtask", NULL };
-static const char *rooterm[] =   { "root-terminal", NULL };
+static const char *rooterm[] =         { "root-terminal", NULL };
 //static const char *[] =              { "", NULL };
 
 static Key keys[] = {
@@ -181,8 +181,10 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-        {ClkButton,		0,		Button1,	spawn,		{.v = morc } },
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+        { ClkButton,		0,		Button1,	spawn,		{.v = morc } },
+	{ ClkButton,            0,              Button2,        spawn,          {.v = file } },
+        { ClkButton,            0,              Button3,        spawn,          {.v = sessmgr } },
+        { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
 	{ ClkLtSymbol,          0,      	Button4,        incnmaster,     {.i = +1 } },
@@ -201,8 +203,8 @@ static Button buttons[] = {
 	{ ClkClientWin,         Mod5Mask,       Button2,        togglefloating, {0} },
 	{ ClkClientWin,         Mod5Mask,       Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        spawn,          {.v = morc } },
-        { ClkTagBar,            0,              Button2,        spawn,          {.v = sessmgr } },
+	{ ClkTagBar,            0,              Button3,        tag,            {0} },
+        { ClkTagBar,            0,              Button2,        toggletag,      {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTagBar,            0,      	Button4,        pushup,         {.i = +1 } },
