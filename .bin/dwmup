@@ -1,4 +1,4 @@
 #!/bin/bash
-cd $HOME/.dwm/dwm-6.1/
+cd $HOME/.dwm/dwm/
 sudo make install
 reload
