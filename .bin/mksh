@@ -1,5 +1,5 @@
 #!/bin/bash
-path="$HOME/.sh/"
+path="$HOME/.bin/"
 echo 'Lets write a new script'
 sleep 1
 read -p "Give it a name : " sh
