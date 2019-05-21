@@ -1,5 +1,5 @@
 #!/bin/bash
-path="$HOME/.sh/"
+path="$HOME/.dir/"
 ls --color=always $path
 read -p "Choose one from above to be deleted : " app
 rm $path$app
