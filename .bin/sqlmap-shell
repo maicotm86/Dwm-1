@@ -1,7 +1,13 @@
 #!/bin/bash
-sqlmap 		\
---sqlmap-shell 	\
---level=5 	\
---risk=3 	\
---tor 		\
---time-sec=10
+st 									\
+-c sqlmap-shell 							\
+-n sqlmap-shell 							\
+-t sqlmap-shell								\
+-e sh -c "echo 'Starting TOR'; 						\
+sudo systemctl start tor; 						\
+echo 'Entering SqlMap Shell'; 						\
+sqlmap --risk 3 --level 5 --tor --check-tor -v 6 -a --sqlmap-shell; 	\
+echo 'Stopping TOR'; 							\
+sudo systemctl stop tor; 						\
+echo 'Good Bye ;)'; 							\
+sleep 2;"

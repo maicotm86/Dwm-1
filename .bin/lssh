@@ -1,5 +1,5 @@
 #!/bin/bash
 ls \
 --color=always \
-/usr/loca/bin/ \
+$HOME/.sh
 echo "Those are all your custom shell scripts"
