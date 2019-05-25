@@ -37,6 +37,7 @@ static const Rule rules[] = {
         { "mupen64plus",                NULL,       NULL,       1 << 5,       1,             0,           -1 },
         { "retroarch",                  NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "Terminal",     		NULL,       NULL,       1 << 4,       1,             0,           -1 },
+	{ "sqlmap-shell",     		NULL,       NULL,       1 << 4,       1,             0,           -1 },
 	{ "st-256color",     		NULL,       NULL,       1 << 4,       1,             0,           -1 },
 	{ "SimpleScreenRecorder",  	NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Telegram",  			NULL,       NULL,       1 << 0,       1,             0,           -1 },
@@ -46,7 +47,7 @@ static const Rule rules[] = {
 	{ "Leafpad",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "Epdfview",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "xine",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
-	{ "feh",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "feh",  			NULL,       NULL,       1 << 5,       1,             1,           -1 },
 	{ "Sxiv",                       NULL,       NULL,       1 << 5,       1,             1,           -1 },
 	{ "qt5ct",  			NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Lxappearance",		NULL,       NULL,       1 << 6,       1,             1,           -1 },
@@ -95,16 +96,16 @@ static const char *termcmd[]  =        { "terminal", NULL };
 static const char *ffox[]  =           { "firefox", NULL };
 static const char *file[]  =           { "rox", NULL };
 static const char *deadbeef[]  =       { "deadbeef", NULL };
-static const char *telegram[]  =       { "telegram-desktop", NULL };
+static const char *telegram[]  =       { "/opt/Telegram/Telegram", NULL };
 static const char *morc[] =            { "dwmenu", NULL };
-static const char *nwmgr[] =           { "connman", NULL };
+static const char *nwmgr[] =           { "cmst", "--disable-tray-icon", NULL };
 static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
 static const char *sterm[] =           { "smart-terminal", NULL };
 static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
 static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
 static const char *gcal[] =            { "gsimplecal", NULL };
-static const char *mscrot[] =          { "mate-screenshot", NULL };
+static const char *scrsht[] =          { "screenshot", NULL };
 static const char *smart[] =           { "smart-terminal", NULL };
 static const char *leafpad[] =         { "leafpad", NULL };
 static const char *wpaper[] =          { "wallpaper", NULL };
@@ -161,7 +162,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,		        XK_x,      spawn,          {.v = sessmgr} },
-        { 0,                		XK_Print,  spawn,          {.v = mscrot } },
+        { Mod5Mask,           		XK_F11,    spawn,          {.v = scrsht } },
 	{ 0,                       XF86AudioMute,  spawn,          {.v = vmute } },
 	{ 0,                XF86AudioRaiseVolume,  spawn,          {.v = vup } },
 	{ 0,                XF86AudioLowerVolume,  spawn, 	   {.v = vdown } },
