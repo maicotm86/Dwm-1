@@ -1,5 +1,5 @@
 #!/bin/bash
-path=$HOME/.bin/
+path=$HOME/.sh/
 ls --color=always $path
 read -p "Choose one above to edit : " app
 nano -iglS $path$app

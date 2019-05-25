@@ -1,4 +1,4 @@
 #!/bin/bash
 cd $HOME/.dwm/dwm/
 sudo make install
-reload
+notify-send "Dwm" "Now you can hit Ctrl+R"

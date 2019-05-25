@@ -1,5 +1,5 @@
 #!/bin/bash
-st-arc \
+st \
 -c root-terminal \
 -n root-terminal \
 -t Metasploit \
