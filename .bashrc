@@ -8,7 +8,7 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 export EDITOR=nano
-
+export PATH=$PATH:$HOME/.sh
 # User specific aliases and functions
 PS1='\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;38m\]\w\[\033[00m\]\$ '
 
@@ -39,7 +39,7 @@ alias pacde="pacman -Qet"				# Display explicit packages
 ##
 #alias qemu="qemu-system-x86_64 -m 1524 -vga std -enable-kvm -cpu host"
 alias xclass="xprop | grep CLASS"
-alias dwmrc="nano ~/.dwm/dwm-6.1/config.h"
+alias dwmrc="nano ~/.dwm/dwm/config.h"
 alias shrc="nano ~/.bashrc"
 alias rofirc="nano ~/.config/rofi/config"
 alias vrc="vim ~/.vimrc"
