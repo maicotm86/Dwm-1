@@ -1,0 +1,6 @@
+#!/bin/bash
+path=$HOME/.sh/
+ls --color=always $path
+read -p "Choose one above to edit : " app
+nano -iglS $path$app
+echo "Changes have been done on '$app'"

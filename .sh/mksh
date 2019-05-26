@@ -1,0 +1,8 @@
+#!/bin/bash
+path="$HOME/.sh/"
+echo 'Lets write a new script'
+sleep 1
+read -p "Give it a name : " sh
+nano $path$sh
+chmod +x $path$sh
+echo "Now you can run '$' as you wish"

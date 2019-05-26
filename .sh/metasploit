@@ -1,0 +1,6 @@
+#!/bin/bash
+st \
+-c root-terminal \
+-n root-terminal \
+-t Metasploit \
+-e sh -c "msfconsole"

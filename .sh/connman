@@ -1,0 +1,16 @@
+#!/bin/bash
+st-arc \
+-c SmartTerm \
+-n Smart-Terminal \
+-t Connman \
+-e sh -c "echo 'Connman Network Manager'; \
+echo 'Scaning Wifi'; \
+connmanctl scan wifi; \
+echo ''; \
+connmanctl services; \
+echo ''; \
+echo 'If it´s the first time you are connecting to this specific wifi';\
+echo 'just type [agent on] before trying to connect'; \
+echo 'Type [help] if needed'; \
+echo ''; \
+connmanctl"
