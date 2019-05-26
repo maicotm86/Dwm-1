@@ -1,6 +1,0 @@
-#!/bin/bash
-st-arc \
--c SmartTerm \
--n Smart-Terminal \
--t 'compiling dwm' \
--e sh -c "dwmake; sleep 2"
