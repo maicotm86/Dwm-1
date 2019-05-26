@@ -1,6 +1,0 @@
-#!/bin/bash
-# Before reloading Dwm, you must kill every thing from your autostart.sh file because they will be lauched again.
-pkill autostart.sh
-pkill udiskie
-pkill conky
-notify-send 'Dwm' 'Now we can reload ;)'
