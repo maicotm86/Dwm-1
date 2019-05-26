@@ -9,7 +9,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 if [ -f $sysresources ]; then
 
-xrdb -merge $sysresources
+    xrdb -merge $sysresources
 
 fi
 
@@ -19,7 +19,7 @@ fi
 
 if [ -f "$userresources" ]; then
 
-xrdb -merge "$userresources"
+    xrdb -merge "$userresources"
 
 fi
 

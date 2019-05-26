@@ -9,14 +9,14 @@ conky.config = {
 }
 
 conky.text = [[\
- ${downspeedf wlp2s0} \
- ${upspeedf wlp2s0}    \
+ ${downspeedf wlan0} \
+ ${upspeedf wlan0}    \
 ${cpu}%    \
 ${memperc}% \
 ${swapperc}%    \
-${battery_percent}%    \
-${addr wlp2s0}    \
-${exec /home/void/.vol.sh}%    \
+${exec cat /sys/class/power_supply/axp288_fuel_gauge/capacity}%    \
+${addr wlan0}    \
+${exec vol}%    \
 ${time %H:%M:%S %a %d/%m/%y} \
 ]]
 
