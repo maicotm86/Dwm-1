@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=System Information
+Type=Application
+GenericName=Archey and Pacman Version
+Terminal=false
+Exec=sysinfo
+Icon=arch
+Categories=ConsoleOnly;System;
+Keywords=system

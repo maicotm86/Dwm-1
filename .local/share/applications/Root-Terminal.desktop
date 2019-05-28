@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Root-Terminal
+Type=Application
+GenericName=Simple Terminal As Root
+Terminal=false
+Exec=root-terminal
+Icon=root-terminal
+Categories=ConsoleOnly;System;
+Keywords=system

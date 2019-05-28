@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Dwm Compile 
+Type=Application
+GenericName=Compile Dwm with a click
+Terminal=false
+Exec=compile
+Icon=dwm
+Categories=ConsoleOnly;System;
+Keywords=system

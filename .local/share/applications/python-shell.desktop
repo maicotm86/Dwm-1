@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Python-Shell
+Type=Application
+GenericName=Python Interactive Shell
+Terminal=false
+Exec=python-shell
+Icon=/home/void/.icons/python.png
+Categories=ConsoleOnly;System;
+Keywords=system

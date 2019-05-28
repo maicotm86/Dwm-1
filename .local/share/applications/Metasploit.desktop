@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Metasploit
+Type=Application
+GenericName=msfconsole
+Terminal=false
+Exec=metasploit
+Icon=metasploit
+Categories=ConsoleOnly;System;
+Keywords=system

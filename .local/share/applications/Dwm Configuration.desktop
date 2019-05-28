@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Dwm Configurations
+Type=Application
+GenericName=Configure Dwm with Leafpad
+Terminal=false
+Exec=leafpad /home/void/.dwm/dwm/config.h
+Icon=dwm
+Categories=ConsoleOnly;System;
+Keywords=system

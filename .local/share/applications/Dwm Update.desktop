@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Dwm Update 
+Type=Application
+GenericName=Update Dwm with a click
+Terminal=false
+Exec=update-dwm
+Icon=dwm
+Categories=ConsoleOnly;System;
+Keywords=system

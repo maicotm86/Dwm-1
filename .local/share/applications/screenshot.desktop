@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Shotgun
+Type=Application
+GenericName=Screenshot Application
+Terminal=false
+Exec=screenshot
+Icon=screenshot
+Categories=ConsoleOnly;System;
+Keywords=system

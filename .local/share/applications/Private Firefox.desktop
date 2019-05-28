@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Private Firefox
+Type=Application
+GenericName=Private mode
+Terminal=false
+Exec=firefox --private-window
+Icon=Firefox 2
+Categories=Browser;Web;
+Keywords=browser

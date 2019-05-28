@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Telegram
+Type=Application
+Terminal=false
+Exec=/opt/Telegram/Telegram
+Icon=telegram-icon
+Categories=Network;
+Keywords=Internet;Web;

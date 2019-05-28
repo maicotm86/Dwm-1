@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Terminal
+Type=Application
+GenericName=Arc themed Simple Terminal
+Terminal=false
+Exec=terminal
+Icon=terminal
+Categories=ConsoleOnly;System;
+Keywords=system

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Smart-Terminal
+Type=Application
+GenericName=Arc themed floating Simple Terminal
+Terminal=false
+Exec=smart-terminal
+Icon=terminal
+Categories=ConsoleOnly;System;
+Keywords=system
