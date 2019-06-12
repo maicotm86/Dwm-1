@@ -47,8 +47,9 @@ static const Rule rules[] = {
         { "Transmission",               NULL,       NULL,       1 << 2,       1,             0,           -1 },
 	{ "Leafpad",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "Epdfview",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
-	{ "xine",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
-	{ "feh",  			NULL,       NULL,       1 << 5,       1,             1,           -1 },
+	{ "ffplay",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "mpv",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "feh",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "Sxiv",                       NULL,       NULL,       1 << 5,       1,             1,           -1 },
 	{ "qt5ct",  			NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Lxappearance",		NULL,       NULL,       1 << 6,       1,             1,           -1 },
@@ -114,7 +115,7 @@ static const char *susp[] =            { "slock", "systemctl", "suspend", "-i", 
 static const char *reboot[] =          { "systemctl", "reboot", NULL };
 static const char *python[] =          { "python-shell", NULL };
 static const char *aft[] =             { "android-file-transfer", NULL };
-static const char *task[] =            { "lxtask", NULL };
+static const char *task[] =            { "st", "-e", "sh", "-c", "htop", NULL };
 static const char *rooterm[] =         { "root-terminal", NULL };
 //static const char *[] =              { "", NULL };
 
@@ -190,8 +191,8 @@ static Button buttons[] = {
         { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
-	{ ClkLtSymbol,          0,      	Button4,        incnmaster,     {.i = +1 } },
-	{ ClkLtSymbol,          0,              Button5,      	incnmaster,     {.i = -1 } },
+	{ ClkLtSymbol,          0,      	Button4,        pushup,         {.i = +1 } },
+	{ ClkLtSymbol,          0,              Button5,      	pushup,         {.i = +1 } },
 	{ ClkWinTitle,          0,              Button4,        focusstack,     {.i = -1 } },
         { ClkWinTitle,          0,              Button5,        focusstack,     {.i = +1 } },
         { ClkWinTitle,          0,              Button2,        killclient,     {0} },
@@ -199,7 +200,7 @@ static Button buttons[] = {
         { ClkWinTitle,          0,              Button3,        resizemouse,    {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
         { ClkStatusText,        0,              Button1,        spawn,          {.v = gcal } },
-        { ClkStatusText,        0,              Button3,        spawn,          {.v = nwmgr } },
+        { ClkStatusText,        0,              Button3,        spawn,          {.v = task } },
 	{ ClkStatusText,        0,              Button4,        spawn,          {.v = vup } },
 	{ ClkStatusText,        0,              Button5,        spawn,          {.v = vdown } },
 	{ ClkClientWin,         Mod5Mask,       Button1,        movemouse,      {0} },
@@ -210,8 +211,6 @@ static Button buttons[] = {
         { ClkTagBar,            0,              Button2,        toggletag,      {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-	{ ClkTagBar,            0,      	Button4,        pushup,         {.i = +1 } },
-	{ ClkTagBar,            0,              Button5,      	pushdown,       {.i = -1 } },
         { ClkRootWin,           0,              Button1,        movemouse,      {0} },
         { ClkRootWin,           0,              Button3,        resizemouse,    {0} },
         { ClkRootWin,           0,              Button2,        killclient,     {0} },
