@@ -57,7 +57,7 @@ static const Rule rules[] = {
         { "Mate-screenshot",            NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "Lxtask",			NULL,       NULL,       0 << 0,       1,             1,           -1 },
 	{ "aft-linux-qt",  		NULL,       NULL,       1 << 6,       1,             1,           -1 },
-	{ "Apache NetBeans IDE 10.0",	NULL,       NULL,       1 << 3,       1,             0,           -1 },
+	{ "Pavucontrol",	        NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "SmartTerm",                  NULL,       NULL,       0 << 0,       1,             1,           -1 },
 };
 
