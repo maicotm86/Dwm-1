@@ -2,5 +2,5 @@
 st \
 -c SmartTerm \
 -n Smart-Terminal \
--t '' \
+-t 'Wpa Cli' \
 -e sh -c "sudo wpa_cli"
