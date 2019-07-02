@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
-Name=Smart-Terminal
+Name=Wpa-reset
 Type=Application
-GenericName=Arc themed floating Simple Terminal
+GenericName=Reset network
 Terminal=false
-Exec=smart-terminal
-Icon=terminal
+Exec=wpa-reset
+Icon=wpa-reset
 Categories=ConsoleOnly;System;
 Keywords=system
 OnlyShowIn=dwm

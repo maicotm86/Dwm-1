@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
-Name=Smart-Terminal
+Name=Wpa_supplicant CLI
 Type=Application
-GenericName=Arc themed floating Simple Terminal
+GenericName=Wpa_supplicant CLI
 Terminal=false
-Exec=smart-terminal
-Icon=terminal
+Exec=wpa-cli
+Icon=wpa_cli
 Categories=ConsoleOnly;System;
 Keywords=system
 OnlyShowIn=dwm

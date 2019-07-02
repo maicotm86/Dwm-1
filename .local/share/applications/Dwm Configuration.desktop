@@ -8,3 +8,4 @@ Exec=leafpad /home/void/.dwm/dwm/config.h
 Icon=dwm
 Categories=ConsoleOnly;System;
 Keywords=system
+OnlyShowIn=dwm

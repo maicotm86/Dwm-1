@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
-Name=Smart-Terminal
+Name=Record Desktop
 Type=Application
-GenericName=Arc themed floating Simple Terminal
+GenericName=FFMPEG desktop recording
 Terminal=false
-Exec=smart-terminal
-Icon=terminal
+Exec=ffrecdesk
+Icon=ffmpeg
 Categories=ConsoleOnly;System;
 Keywords=system
 OnlyShowIn=dwm

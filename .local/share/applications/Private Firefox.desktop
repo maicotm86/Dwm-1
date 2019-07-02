@@ -8,3 +8,4 @@ Exec=firefox --private-window
 Icon=Firefox 2
 Categories=Browser;Web;
 Keywords=browser
+OnlyShowIn=dwm

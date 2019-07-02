@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
-Name=Smart-Terminal
+Name=Wpa-on
 Type=Application
-GenericName=Arc themed floating Simple Terminal
+GenericName=Turn network on 
 Terminal=false
-Exec=smart-terminal
-Icon=terminal
+Exec=wpa-on
+Icon=wpa-on
 Categories=ConsoleOnly;System;
 Keywords=system
 OnlyShowIn=dwm

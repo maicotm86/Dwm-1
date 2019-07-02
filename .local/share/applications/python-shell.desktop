@@ -8,3 +8,4 @@ Exec=python-shell
 Icon=/home/void/.icons/python.png
 Categories=ConsoleOnly;System;
 Keywords=system
+OnlyShowIn=dwm

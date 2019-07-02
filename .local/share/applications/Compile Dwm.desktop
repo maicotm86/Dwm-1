@@ -8,3 +8,4 @@ Exec=compile
 Icon=dwm
 Categories=ConsoleOnly;System;
 Keywords=system
+OnlyShowIn=dwm
