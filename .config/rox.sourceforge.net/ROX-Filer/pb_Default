@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <pinboard>
-  <backdrop style="Stretched">/usr/share/backgrounds/Ice-Pictures-HD.jpg</backdrop>
+  <backdrop style="Stretched">/usr/share/backgrounds/minflat.jpg</backdrop>
+  <icon x="64" y="176" label="Media">/home/void/Media</icon>
+  <icon x="64" y="80" label="RAM">/home/void/RAM</icon>
 </pinboard>
