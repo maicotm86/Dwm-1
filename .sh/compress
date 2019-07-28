@@ -1,19 +1,16 @@
 #!/bin/bash
 cd $( dirname "$@")
 
-echo -n "Choose a format among 7z, tar or zip: "
+echo -n "Choose a format among 7z, tar, tar.gz, gz or zip: "
 read format
-while [ "$format" != "7z" -a "$format" != "tar" -a "$format" != "zip" ]
+
+while [ "$format" != "7z" -a "$format" != "tar" -a "$format" != "tar.gz" -a "$format" != "gz" -a "$format" != "zip" ]
 do
-echo "Wrong format"; sleep 1
-echo -n "Choose a format among 7z, tar or zip: "
-read format
+	echo "Wrong format"; sleep 1
+	echo -n "Choose a format among 7z, tar.gz, gz or zip: "
+	read format
 done
-if [[ "$format" == "7z" ]]; then 		\
-	7z a "$@".7z "$@"
-elif [[ "$format" == "tar" ]]; then 		\
-	7z a "$@".tar "$@"
-elif [[ "$format" == "zip" ]]; then		\
-	7z a "$@".zip "$@"
-fi
-	
+
+7zr a "$@"."$format" "$@"
+
+echo "Archive $@.$format successfully created"; sleep 3
