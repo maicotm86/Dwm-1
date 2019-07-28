@@ -1,5 +1,4 @@
 #!/bin/bash
-cd $( dirname "$@")
 st-arc \
 -c SmartTerm \
 -n Smart-Terminal \

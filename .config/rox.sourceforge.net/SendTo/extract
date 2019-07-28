@@ -4,4 +4,4 @@ st-arc 			\
 -c SmartTerm		\
 -n Smart-Terminal	\
 -t Descompact		\
--e 7z x "$@"
+-e 7zr x "$@"
