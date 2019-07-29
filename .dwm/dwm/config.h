@@ -8,6 +8,7 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+//static const Bool viewontag         = True;     /* Switch view on tag switch */
 //static const unsigned int gappx     = 6;        /* gap pixel between windows */
 static const char buttonbar[]       = "        ";
 static const char *fonts[]          = { "Sans:size=8" };
@@ -34,8 +35,6 @@ static const Rule rules[] = {
 	/* class      			instance    title       tags mask     iscentered     isfloating   monitor */
 	{ "Pinta",     			NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "firefox",  			NULL,       NULL,       1 << 1,       1,             0,           -1 },
-	{ "Navigator",  		NULL,       NULL,       1 << 1,       1,             0,           -1 },
-	{ "Firefox",  			NULL,       NULL,       1 << 1,       1,             0,           -1 },
         { "mupen64plus",                NULL,       NULL,       1 << 5,       1,             0,           -1 },
         { "retroarch",                  NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "Terminal",     		NULL,       NULL,       1 << 4,       1,             0,           -1 },
@@ -45,12 +44,14 @@ static const Rule rules[] = {
 	{ "SimpleScreenRecorder",  	NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Telegram",  			NULL,       NULL,       1 << 0,       1,             0,           -1 },
 	{ "deadbeef",  			NULL,       NULL,       1 << 0,       1,             0,           -1 },
-	{ "Tor Browser",		NULL,       NULL,       1 << 2,       1,             0,           -1 },
+	{ "Tor Browser",		        NULL,       NULL,       1 << 2,       1,             0,           -1 },
         { "Transmission",               NULL,       NULL,       1 << 2,       1,             0,           -1 },
 	{ "Leafpad",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "Epdfview",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "ffplay",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
-	{ "mpv",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "VirtualBox Manager",		NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "VirtualBox Machine",		NULL,       NULL,       1 << 5,       1,             0,           -1 },
+	{ "mednafen",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "feh",  			NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "Sxiv",                       NULL,       NULL,       1 << 5,       1,             1,           -1 },
 	{ "qt5ct",  			NULL,       NULL,       1 << 6,       1,             1,           -1 },
@@ -59,7 +60,7 @@ static const Rule rules[] = {
         { "Mate-screenshot",            NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "Lxtask",			NULL,       NULL,       0 << 0,       1,             1,           -1 },
 	{ "aft-linux-qt",  		NULL,       NULL,       1 << 6,       1,             1,           -1 },
-	{ "Pavucontrol",	        NULL,       NULL,       0 << 0,       1,             1,           -1 },
+	{ "Pavucontrol",	                NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "SmartTerm",                  NULL,       NULL,       0 << 0,       1,             1,           -1 },
 };
 
@@ -70,10 +71,10 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol      arrange function */
-	{ "Tile",      tile },              /* first entry is default */
+	{ "Tile",      tile },
 	{ "Float",     NULL },    	    /* no layout function means floating behavior */
 	{ "Monocle",   monocle },
-	{ "Grid",      gaplessgrid },
+	{ "Grid",      gaplessgrid },       /* first entry is default */
 };
 
 
@@ -105,9 +106,12 @@ static const char *morc[] =            { "dwmenu", NULL };
 static const char *nwmgr[] =           { "cmst", "--disable-tray-icon", NULL };
 static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
 static const char *sterm[] =           { "smart-terminal", NULL };
-static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
+//static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
+//static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
+//static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
+static const char *vup[]   =         { "amixer", "set", "Master", "3+",     NULL };
+static const char *vdown[] =         { "amixer", "set", "Master", "3-",     NULL };
+static const char *vmute[] =         { "amixer", "set", "Master", "toggle", NULL };
 static const char *gcal[] =            { "gsimplecal", NULL };
 static const char *scrsht[] =          { "screenshot", NULL };
 static const char *smart[] =           { "smart-terminal", NULL };
@@ -131,7 +135,6 @@ static Key keys[] = {
 	{ Mod5Mask|ShiftMask,           XK_p,      spawn,          {.v = python } },
 	{ Mod5Mask,                     XK_Return, spawn,          {.v = termcmd } },
         { Mod5Mask, 		        XK_f,      spawn,          {.v = ffox } },
-	{ Mod5Mask,                     XK_comma,  spawn,          {.v = morc } },
 	{ Mod5Mask,                     XK_a,      spawn,          {.v = aft } },
 	{ Mod5Mask,                     XK_r,      spawn,          {.v = file } },
 	{ Mod5Mask,                     XK_d,      spawn,      	   {.v = deadbeef } },
@@ -143,7 +146,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ Mod5Mask|ShiftMask,           XK_Down,   pushdown,       {0} },
     	{ Mod5Mask|ShiftMask,           XK_Up,     pushup,         {0} },
-	{ Mod5Mask|ShiftMask,        XK_semicolon, zoom,     	   {0} },
 	{ Mod5Mask,                     XK_Down,   focusstack,     {.i = +1 } },
 	{ Mod5Mask,                     XK_Up,     focusstack,     {.i = -1 } },
         { Mod5Mask|ShiftMask,           XK_Right,  incnmaster,     {.i = -1 } },
@@ -163,10 +165,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,		        XK_x,      spawn,          {.v = sessmgr} },
-        { Mod5Mask,           		XK_F11,    spawn,          {.v = scrsht } },
+	{ Mod5Mask,                     XK_comma,  focusmon,       {.i = -1 } },
+	{ Mod5Mask,                     XK_period, focusmon,       {.i = +1 } },
+	{ Mod5Mask|ShiftMask,           XK_comma,  tagmon,         {.i = -1 } },
+	{ Mod5Mask|ShiftMask,           XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,		        XK_x,      spawn,          {.v = morc} },
+        { 0,           		        XK_Print,  spawn,          {.v = scrsht } },
 	{ 0,                       XF86AudioMute,  spawn,          {.v = vmute } },
 	{ 0,                XF86AudioRaiseVolume,  spawn,          {.v = vup } },
 	{ 0,                XF86AudioLowerVolume,  spawn, 	   {.v = vdown } },
@@ -187,18 +191,18 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-        { ClkButton,		0,		Button1,	spawn,		{.v = morc } },
+        { ClkButton,		0,		Button1,	        spawn,		{.v = morc } },
 	{ ClkButton,            0,              Button2,        spawn,          {.v = file } },
         { ClkButton,            0,              Button3,        spawn,          {.v = sessmgr } },
         { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
-	{ ClkLtSymbol,          0,      	Button4,        pushup,         {.i = -1 } },
-	{ ClkLtSymbol,          0,              Button5,      	pushdown,         {.i = +1 } },
+	{ ClkLtSymbol,          0,      		Button4,        pushup,         {.i = -1 } },
+	{ ClkLtSymbol,          0,              Button5,      	pushdown,       {.i = +1 } },
 	{ ClkWinTitle,          0,              Button4,        focusstack,     {.i = -1 } },
         { ClkWinTitle,          0,              Button5,        focusstack,     {.i = +1 } },
         { ClkWinTitle,          0,              Button2,        killclient,     {0} },
-	{ ClkWinTitle,          0,              Button1,	movemouse,      {0} },
+	{ ClkWinTitle,          0,              Button1,	        movemouse,      {0} },
         { ClkWinTitle,          0,              Button3,        resizemouse,    {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
         { ClkStatusText,        0,              Button1,        spawn,          {.v = gcal } },
