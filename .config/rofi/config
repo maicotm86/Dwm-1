@@ -8,5 +8,5 @@ rofi.location: 1
 rofi.yoffset: 19
 rofi.fixed-num-lines: false
 
-rofi.theme: /home/void/config/rofi/Arc-Dark.rasi
+rofi.theme: /home/void/.config/rofi/Arc-Dark.rasi
 rofi.columns: 1
