@@ -44,7 +44,7 @@ static const Rule rules[] = {
 	{ "SimpleScreenRecorder",  	NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Telegram",  			NULL,       NULL,       1 << 0,       1,             0,           -1 },
 	{ "deadbeef",  			NULL,       NULL,       1 << 0,       1,             0,           -1 },
-	{ "Tor Browser",		        NULL,       NULL,       1 << 2,       1,             0,           -1 },
+	{ "Tor Browser",                NULL,       NULL,       1 << 2,       1,             0,           -1 },
         { "Transmission",               NULL,       NULL,       1 << 2,       1,             0,           -1 },
 	{ "Leafpad",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
 	{ "Epdfview",  			NULL,       NULL,       1 << 3,       1,             0,           -1 },
@@ -60,7 +60,7 @@ static const Rule rules[] = {
         { "Mate-screenshot",            NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "Lxtask",			NULL,       NULL,       0 << 0,       1,             1,           -1 },
 	{ "aft-linux-qt",  		NULL,       NULL,       1 << 6,       1,             1,           -1 },
-	{ "Pavucontrol",	                NULL,       NULL,       0 << 0,       1,             1,           -1 },
+	{ "Pavucontrol",	        NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "SmartTerm",                  NULL,       NULL,       0 << 0,       1,             1,           -1 },
 };
 
@@ -71,10 +71,10 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol      arrange function */
-	{ "Tile",      tile },
+	{ "Grid",      gaplessgrid },       /* first entry is default */
 	{ "Float",     NULL },    	    /* no layout function means floating behavior */
 	{ "Monocle",   monocle },
-	{ "Grid",      gaplessgrid },       /* first entry is default */
+	{ "Tile",      tile },
 };
 
 
@@ -109,9 +109,9 @@ static const char *sterm[] =           { "smart-terminal", NULL };
 //static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
 //static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
 //static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
-static const char *vup[]   =         { "amixer", "set", "Master", "3+",     NULL };
-static const char *vdown[] =         { "amixer", "set", "Master", "3-",     NULL };
-static const char *vmute[] =         { "amixer", "set", "Master", "toggle", NULL };
+static const char *vup[]   =           { "amixer", "set", "Master", "3+",     NULL };
+static const char *vdown[] =           { "amixer", "set", "Master", "3-",     NULL };
+static const char *vmute[] =           { "amixer", "set", "Master", "toggle", NULL };
 static const char *gcal[] =            { "gsimplecal", NULL };
 static const char *scrsht[] =          { "screenshot", NULL };
 static const char *smart[] =           { "smart-terminal", NULL };
@@ -191,18 +191,18 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-        { ClkButton,		0,		Button1,	        spawn,		{.v = morc } },
+        { ClkButton,		0,		Button1,	spawn,		{.v = morc } },
 	{ ClkButton,            0,              Button2,        spawn,          {.v = file } },
         { ClkButton,            0,              Button3,        spawn,          {.v = sessmgr } },
         { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button2,        setlayout,      {.v = &layouts[2]} },
 	{ ClkLtSymbol,          0,              Button3,        togglefloating, {0} },
-	{ ClkLtSymbol,          0,      		Button4,        pushup,         {.i = -1 } },
+	{ ClkLtSymbol,          0,              Button4,        pushup,         {.i = -1 } },
 	{ ClkLtSymbol,          0,              Button5,      	pushdown,       {.i = +1 } },
 	{ ClkWinTitle,          0,              Button4,        focusstack,     {.i = -1 } },
         { ClkWinTitle,          0,              Button5,        focusstack,     {.i = +1 } },
         { ClkWinTitle,          0,              Button2,        killclient,     {0} },
-	{ ClkWinTitle,          0,              Button1,	        movemouse,      {0} },
+	{ ClkWinTitle,          0,              Button1,	movemouse,      {0} },
         { ClkWinTitle,          0,              Button3,        resizemouse,    {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
         { ClkStatusText,        0,              Button1,        spawn,          {.v = gcal } },
