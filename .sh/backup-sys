@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo rsync -aAXv --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*} --exclude="Downloads" $1 $2
