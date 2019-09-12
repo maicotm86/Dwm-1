@@ -4,7 +4,7 @@ cd $( dirname "$@")
 format="$@"
 file="${format#*.}"
 
-if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" ]
+if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" -a "$file" != "tar.xz" -a "$file" != "tar.bz2" ]
 then
 	echo "Wrong file"; sleep 1
 
