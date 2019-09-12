@@ -4,7 +4,7 @@ cd $( dirname "$@")
 format="$@"
 file="${format#*.}"
 
-if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" -a "$file" != "tar.xz" -a "$file" != "tar.bz2" ]
+if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" -a "$file" != "tar.xz" -a "$file" != "tar.bz2" -a "$file" != "rar" ]
 then
 	echo -n "Choose a format among 7z, tar, tar.xz, tar.bz2, tar.gz, gz or zip: "
 	read format
@@ -16,7 +16,7 @@ then
 		read format
 	done
 
-	if [ "$format" == "7z" -o "$format" == "zip" ]
+	if [ "$format" == "7z" -o "$format" == "zip" -o "$format" == "rar" ]
 	then
 		7zr a "$@"."$format" "$@"
 	else
@@ -26,7 +26,7 @@ then
 	echo "Archive $@.$format successfully created"; sleep 3
 
 
-elif [ "$file" == "7z" -o "$file" == "zip" ]
+elif [ "$file" == "7z" -o "$file" == "zip" -o "$file" == "rar" ]
 then
 	7z x "$@"
 else
