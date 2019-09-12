@@ -1,7 +1,16 @@
 #!/bin/bash
 cd $( dirname "$@")
-st-arc 			\
--c SmartTerm		\
--n Smart-Terminal	\
--t Descompact		\
--e 7z x "$@"
+
+format="$@"
+file="${format#*.}"
+
+if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" ]
+then
+	echo "Wrong file"; sleep 1
+
+elif [ "$file" == "7z" -o "$file" == "zip" ]
+then
+	7zr x "$@"
+else
+	tar xvf "$@"
+fi
