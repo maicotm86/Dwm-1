@@ -15,7 +15,7 @@
   <Option name="display_unkn_colour">#b3b3b7b7c2c2</Option>
   <Option name="panel_width">52</Option>
   <Option name="display_details">0</Option>
-  <Option name="pinboard_tasklist">0</Option>
+  <Option name="pinboard_tasklist">1</Option>
   <Option name="menu_xterm">smart-terminal</Option>
   <Option name="dnd_drag_to_icons">1</Option>
   <Option name="pinboard_shadow_labels">1</Option>
@@ -94,7 +94,7 @@
   <Option name="display_show_hidden">0</Option>
   <Option name="action_mount_command">mount</Option>
   <Option name="action_recurse">1</Option>
-  <Option name="pinboard_tasklist_per_workspace">0</Option>
+  <Option name="pinboard_tasklist_per_workspace">1</Option>
   <Option name="panel_obey_workarea">1</Option>
   <Option name="panel_avoid">1</Option>
 </Options>

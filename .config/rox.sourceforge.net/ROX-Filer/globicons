@@ -1,34 +1,64 @@
 <?xml version="1.0"?>
 <special-files>
-  <rule match="/home/void/Videos">
-    <icon>/usr/share/icons/Arc/places/48/folder-videos.png</icon>
+  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress.tar">
+    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
-  <rule match="/home/void/Documents">
+  <rule match="/home/void/Packages">
     <icon>/usr/share/icons/Arc/places/48/folder-documents.png</icon>
-  </rule>
-  <rule match="/home/void/Downloads">
-    <icon>/usr/share/icons/Arc/places/48/folder-download.png</icon>
   </rule>
   <rule match="/home/void/Downloads/tor-browser-linux64-8.5_en-US.tar.xz">
     <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
-  <rule match="/home/void/Media">
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/shred-doc">
+    <icon>/home/void/.icons/shred.png</icon>
+  </rule>
+  <rule match="/home/void/Devices/Media">
     <icon>/usr/share/icons/Arc/devices/48/media-flash.png</icon>
+  </rule>
+  <rule match="/home/void/Downloads/Telegram Desktop.7z">
+    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
+  </rule>
+  <rule match="/home/void/Downloads/Telegram Desktop.tar.7z">
+    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
+  </rule>
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/.inode_directory/compress-archive">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/x-package-repository.png</icon>
+  </rule>
+  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress">
+    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
+  </rule>
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/xarch">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/x-package-repository.png</icon>
   </rule>
   <rule match="/home/void/.config/rox.sourceforge.net/SendTo/extract">
     <icon>/home/void/.icons/application-x-bzip-compressed-tar.png</icon>
   </rule>
-  <rule match="/home/void/Downloads/Telegram Desktop.tar">
-    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
-  </rule>
   <rule match="/home/void/Downloads/Telegram Desktop.tar.lzma">
     <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
-  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress.tar">
+  <rule match="/home/void/Videos">
+    <icon>/usr/share/icons/Arc/places/48/folder-videos.png</icon>
+  </rule>
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/compress-archive">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/x-package-repository.png</icon>
+  </rule>
+  <rule match="/home/void/RAM/Pictures.gz">
+    <icon>/home/void/.icons/package-x-generic.png</icon>
+  </rule>
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/.inode_directory/xarch">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/x-package-repository.png</icon>
+  </rule>
+  <rule match="/home/void/RAM/pix.7z">
     <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
-  <rule match="/home/void/RAM">
-    <icon>/home/void/.icons/ram.png</icon>
+  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/.inode_directory/st-xarch">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/x-package-repository.png</icon>
+  </rule>
+  <rule match="/home/void/Downloads">
+    <icon>/usr/share/icons/Arc/places/48/folder-download.png</icon>
+  </rule>
+  <rule match="/home/void/Downloads/R-AFOP (09).rar">
+    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
   <rule match="/home/void/Pictures">
     <icon>/usr/share/icons/Arc/places/48/folder-pictures.png</icon>
@@ -36,40 +66,34 @@
   <rule match="/home/void/Desktop/Android Device">
     <icon>/usr/share/icons/Adwaita/48x48/devices/phone.png</icon>
   </rule>
-  <rule match="/home/void/RAM/pix.7z">
-    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
-  </rule>
-  <rule match="/home/void/Devices/Media">
+  <rule match="/home/void/Media">
     <icon>/usr/share/icons/Arc/devices/48/media-flash.png</icon>
   </rule>
-  <rule match="/home/void/Music">
-    <icon>/usr/share/icons/Arc/places/48/folder-music.png</icon>
-  </rule>
-  <rule match="/home/void/RAM/pix.tar">
+  <rule match="/home/void/Downloads/Telegram Desktop.tar">
     <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
-  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress-archive">
-    <icon>/home/void/.icons/application-x-bzip-compressed-tar.png</icon>
+  <rule match="/home/void/dwm">
+    <icon>/home/void/.icons/DirIcon</icon>
   </rule>
-  <rule match="/home/void/Downloads/Telegram Desktop.7z">
-    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
-  </rule>
-  <rule match="/home/void/Downloads/R-AFOP (09).rar">
-    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
-  </rule>
-  <rule match="/home/void/.config/rox.sourceforge.net/SendTo/shred-doc">
-    <icon>/home/void/.icons/shred.png</icon>
-  </rule>
-  <rule match="/home/void/Downloads/Telegram Desktop.tar.7z">
-    <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
-  </rule>
-  <rule match="/home/void/Packages">
-    <icon>/usr/share/icons/Arc/places/48/folder-documents.png</icon>
+  <rule match="/home/void/RAM/Pictures.tar.gz">
+    <icon>/home/void/.icons/package-x-generic.png</icon>
   </rule>
   <rule match="/home/void/Desktop">
     <icon>/usr/share/icons/Arc/places/48/user-desktop.png</icon>
   </rule>
-  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress">
+  <rule match="/home/void/Music">
+    <icon>/usr/share/icons/Arc/places/48/folder-music.png</icon>
+  </rule>
+  <rule match="/home/void/config/rox.sourceforge.net/SendTo/compress-archive">
+    <icon>/home/void/.icons/application-x-bzip-compressed-tar.png</icon>
+  </rule>
+  <rule match="/home/void/RAM">
+    <icon>/usr/share/icons/Adwaita/48x48/mimetypes/application-x-firmware.png</icon>
+  </rule>
+  <rule match="/home/void/Documents">
+    <icon>/usr/share/icons/Arc/places/48/folder-documents.png</icon>
+  </rule>
+  <rule match="/home/void/RAM/pix.tar">
     <icon>/usr/share/icons/Arc/mimetypes/48/package-x-generic.png</icon>
   </rule>
 </special-files>
