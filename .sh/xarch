@@ -28,7 +28,7 @@ then
 
 elif [ "$file" == "7z" -o "$file" == "zip" ]
 then
-	7zr x "$@"
+	7z x "$@"
 else
 	tar xvf "$@"
 fi
