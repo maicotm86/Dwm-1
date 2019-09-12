@@ -16,11 +16,11 @@ then
 		read format
 	done
 
-	if [ "$format" == "tar" -o "$format" == "tar.gz" -o "$format" == "gz" -o "$format" == "tar.xz" -o "$format" == "tar.bz2" ]
+	if [ "$format" == "7z" -o "$format" == "zip" ]
 	then
-		tar -cvzf "$@"."$format" "$@"
-	else
 		7zr a "$@"."$format" "$@"
+	else
+		tar -cvzf "$@"."$format" "$@"
 	fi
 
 	echo "Archive $@.$format successfully created"; sleep 3
