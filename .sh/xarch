@@ -1,0 +1,34 @@
+#!/bin/bash
+cd $( dirname "$@")
+
+format="$@"
+file="${format#*.}"
+
+if [ "$file" != "7z" -a "$file" != "tar" -a "$file" != "tar.gz" -a "$file" != "gz" -a "$file" != "zip" -a "$file" != "tar.xz" -a "$file" != "tar.bz2" ]
+then
+	echo -n "Choose a format among 7z, tar, tar.xz, tar.bz2, tar.gz, gz or zip: "
+	read format
+
+	while [ "$format" != "7z" -a "$format" != "tar" -a "$format" != "tar.gz" -a "$format" != "gz" -a "$format" != "zip" -a "$format" != "tar.xz" -a "$format" != "tar.bz2" ]
+	do
+		echo "Wrong format"; sleep 1
+		echo -n "Choose a format among 7z, tar, tar.xz, tar.bz2, tar.gz, gz or zip: "
+		read format
+	done
+
+	if [ "$format" == "tar" -o "$format" == "tar.gz" -o "$format" == "gz" -o "$format" == "tar.xz" -o "$format" == "tar.bz2" ]
+	then
+		tar -cvzf "$@"."$format" "$@"
+	else
+		7zr a "$@"."$format" "$@"
+	fi
+
+	echo "Archive $@.$format successfully created"; sleep 3
+
+
+elif [ "$file" == "7z" -o "$file" == "zip" ]
+then
+	7zr x "$@"
+else
+	tar xvf "$@"
+fi
