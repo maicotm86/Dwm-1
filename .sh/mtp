@@ -1,0 +1,2 @@
+#!/bin/bash
+simple-mtpfs ~/mtpAndroid/ -o allow_other
