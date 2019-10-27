@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=MTP
+Type=Application
+GenericName=Mount Android Device
+Terminal=false
+Exec=mtp
+Icon=mtp
+Categories=ConsoleOnly;System;
+Keywords=system
