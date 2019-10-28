@@ -4,8 +4,8 @@
 #include "gaplessgrid.c"
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 //static const Bool viewontag         = True;     /* Switch view on tag switch */
@@ -73,8 +73,8 @@ static const Layout layouts[] = {
 	/* symbol      arrange function */
 	{ "Grid",      gaplessgrid },       /* first entry is default */
 	{ "Float",     NULL },    	    /* no layout function means floating behavior */
-	{ "Monocle",   monocle },
-	{ "Tile",      tile },
+	{ "Monocle",   monocle },           
+	{ "Tile",      tile },              
 };
 
 
@@ -103,15 +103,12 @@ static const char *file[]  =           { "rox", NULL };
 static const char *deadbeef[]  =       { "deadbeef", NULL };
 static const char *telegram[]  =       { "/opt/Telegram/Telegram", NULL };
 static const char *morc[] =            { "dwmenu", NULL };
-static const char *nwmgr[] =           { "cmst", "--disable-tray-icon", NULL };
+static const char *nwmgr[] =           { "wpa-cli", NULL };
 static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
 static const char *sterm[] =           { "smart-terminal", NULL };
-//static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
-//static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
-//static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
-static const char *vup[]   =           { "amixer", "set", "Master", "3+",     NULL };
-static const char *vdown[] =           { "amixer", "set", "Master", "3-",     NULL };
-static const char *vmute[] =           { "amixer", "set", "Master", "toggle", NULL };
+static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
 static const char *gcal[] =            { "gsimplecal", NULL };
 static const char *scrsht[] =          { "screenshot", NULL };
 static const char *smart[] =           { "smart-terminal", NULL };
@@ -120,7 +117,7 @@ static const char *wpaper[] =          { "wallpaper", NULL };
 static const char *susp[] =            { "slock", "systemctl", "suspend", "-i", NULL };
 static const char *reboot[] =          { "systemctl", "reboot", NULL };
 static const char *python[] =          { "python-shell", NULL };
-static const char *aft[] =             { "android-file-transfer", NULL };
+static const char *mtp[] =             { "mtp", NULL };
 static const char *task[] =            { "lxtask", NULL };
 static const char *rooterm[] =         { "root-terminal", NULL };
 //static const char *[] =              { "", NULL };
@@ -135,7 +132,7 @@ static Key keys[] = {
 	{ Mod5Mask|ShiftMask,           XK_p,      spawn,          {.v = python } },
 	{ Mod5Mask,                     XK_Return, spawn,          {.v = termcmd } },
         { Mod5Mask, 		        XK_f,      spawn,          {.v = ffox } },
-	{ Mod5Mask,                     XK_a,      spawn,          {.v = aft } },
+	{ Mod5Mask,                     XK_a,      spawn,          {.v = mtp } },
 	{ Mod5Mask,                     XK_r,      spawn,          {.v = file } },
 	{ Mod5Mask,                     XK_d,      spawn,      	   {.v = deadbeef } },
         { Mod5Mask,                     XK_t,      spawn,          {.v = telegram} },
@@ -161,6 +158,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -170,7 +168,7 @@ static Key keys[] = {
 	{ Mod5Mask|ShiftMask,           XK_comma,  tagmon,         {.i = -1 } },
 	{ Mod5Mask|ShiftMask,           XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,		        XK_x,      spawn,          {.v = morc} },
-        { 0,           		        XK_Print,  spawn,          {.v = scrsht } },
+        { ShiftMask,           		XK_F11,    spawn,          {.v = scrsht } },
 	{ 0,                       XF86AudioMute,  spawn,          {.v = vmute } },
 	{ 0,                XF86AudioRaiseVolume,  spawn,          {.v = vup } },
 	{ 0,                XF86AudioLowerVolume,  spawn, 	   {.v = vdown } },
