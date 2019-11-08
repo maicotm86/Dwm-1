@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	/* class      			instance    title       tags mask     iscentered     isfloating   monitor */
 	{ "Pinta",     			NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "firefox",  			NULL,       NULL,       1 << 1,       1,             0,           -1 },
+	{ "Google-chrome",		NULL,       NULL,       1 << 1,       1,             0,           -1 },
         { "mupen64plus",                NULL,       NULL,       1 << 5,       1,             0,           -1 },
         { "retroarch",                  NULL,       NULL,       1 << 5,       1,             0,           -1 },
 	{ "Terminal",     		NULL,       NULL,       1 << 4,       1,             0,           -1 },
@@ -73,8 +74,8 @@ static const Layout layouts[] = {
 	/* symbol      arrange function */
 	{ "Grid",      gaplessgrid },       /* first entry is default */
 	{ "Float",     NULL },    	    /* no layout function means floating behavior */
-	{ "Monocle",   monocle },           
-	{ "Tile",      tile },              
+	{ "Monocle",   monocle },
+	{ "Tile",      tile },
 };
 
 
@@ -95,32 +96,35 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  =        { "terminal", NULL };
-static const char *ffox[]  =           { "firefox", NULL };
-static const char *file[]  =           { "rox", NULL };
-static const char *deadbeef[]  =       { "deadbeef", NULL };
-static const char *telegram[]  =       { "/opt/Telegram/Telegram", NULL };
-static const char *morc[] =            { "dwmenu", NULL };
-static const char *nwmgr[] =           { "wpa-cli", NULL };
-static const char *sessmgr[] =         { "/home/void/.dwm/Session-manager", NULL };
-static const char *sterm[] =           { "smart-terminal", NULL };
-static const char *vup[] =             { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *vdown[] =           { "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *vmute[] =           { "pactl", "set-sink-mute", "0", NULL };
-static const char *gcal[] =            { "gsimplecal", NULL };
-static const char *scrsht[] =          { "screenshot", NULL };
-static const char *smart[] =           { "smart-terminal", NULL };
-static const char *leafpad[] =         { "leafpad", NULL };
-static const char *wpaper[] =          { "wallpaper", NULL };
-static const char *susp[] =            { "slock", "systemctl", "suspend", "-i", NULL };
-static const char *reboot[] =          { "systemctl", "reboot", NULL };
-static const char *python[] =          { "python-shell", NULL };
-static const char *mtp[] =             { "mtp", NULL };
-static const char *task[] =            { "lxtask", NULL };
-static const char *rooterm[] =         { "root-terminal", NULL };
-//static const char *[] =              { "", NULL };
+static char dmenumon[2] = "0";               /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[] =              { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[] =               { "terminal", NULL }; /* change me to any terminal you want */
+static const char *ffox[]  =                 { "firefox", NULL };
+static const char *file[]  =                 { "rox", NULL };
+static const char *deadbeef[]  =             { "deadbeef", NULL };
+static const char *telegram[]  =             { "/opt/Telegram/Telegram", NULL };
+static const char *morc[] =                  { "~/.dwm/dwmenu", NULL };
+static const char *sessmgr[] =               { "~/.dwm/Session-manager", NULL }; 
+static const char *nwmgr[] =                 { "st-arc", "-t", "Connman", "-e", "connmanctl", NULL };
+static const char *sterm[] =                 { "smart-terminal", NULL }; /* if you set a terminal with a class "SmartTerm" dwm with treat as a foating window */
+//static const char *vup[] =                  { "pactl", "set-sink-volume", "0", "+5%", NULL }; /* use it with Pulseaudio */
+//static const char *vdown[] =                { "pactl", "set-sink-volume", "0", "-5%", NULL }; /* use it with Pulseaudio */
+//static const char *vmute[] =                { "pactl", "set-sink-mute", "0", NULL }; /* use it with Pulseaudio */
+static const char *vup[]   =                 { "amixer", "set", "Master", "3+",     NULL }; /* use it with Alsa-Utils */
+static const char *vdown[] =                 { "amixer", "set", "Master", "3-",     NULL }; /* use it with Alsa-Utils */
+static const char *vmute[] =                 { "amixer", "set", "Master", "toggle", NULL }; /* use it with Alsa-Utils */
+static const char *gcal[] =                  { "gsimplecal", NULL };
+static const char *scrsht[] =                { "screenshot", NULL };
+static const char *smart[] =                 { "smart-terminal", NULL };
+static const char *leafpad[] =               { "leafpad", NULL };
+static const char *wpaper[] =                { "wallpaper", NULL };
+static const char *susp[] =                  { "slock", "systemctl", "suspend", "-i", NULL };
+static const char *reboot[] =                { "systemctl", "reboot", NULL };
+static const char *python[] =                { "python-shell", NULL };
+static const char *aft[] =                   { "simple-mtpfs", "~/mtpAndroid/", "-o", "allow_other", NULL };
+static const char *task[] =                  { "lxtask", NULL };
+static const char *rooterm[] =               { "root-terminal", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -132,7 +136,7 @@ static Key keys[] = {
 	{ Mod5Mask|ShiftMask,           XK_p,      spawn,          {.v = python } },
 	{ Mod5Mask,                     XK_Return, spawn,          {.v = termcmd } },
         { Mod5Mask, 		        XK_f,      spawn,          {.v = ffox } },
-	{ Mod5Mask,                     XK_a,      spawn,          {.v = mtp } },
+	{ Mod5Mask,                     XK_a,      spawn,          {.v = aft } },
 	{ Mod5Mask,                     XK_r,      spawn,          {.v = file } },
 	{ Mod5Mask,                     XK_d,      spawn,      	   {.v = deadbeef } },
         { Mod5Mask,                     XK_t,      spawn,          {.v = telegram} },
@@ -158,7 +162,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -168,7 +171,7 @@ static Key keys[] = {
 	{ Mod5Mask|ShiftMask,           XK_comma,  tagmon,         {.i = -1 } },
 	{ Mod5Mask|ShiftMask,           XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,		        XK_x,      spawn,          {.v = morc} },
-        { ShiftMask,           		XK_F11,    spawn,          {.v = scrsht } },
+        { 0,           		        XK_Print,  spawn,          {.v = scrsht } },
 	{ 0,                       XF86AudioMute,  spawn,          {.v = vmute } },
 	{ 0,                XF86AudioRaiseVolume,  spawn,          {.v = vup } },
 	{ 0,                XF86AudioLowerVolume,  spawn, 	   {.v = vdown } },
