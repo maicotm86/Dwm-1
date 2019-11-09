@@ -17,7 +17,7 @@
  * client.
  *
  * Keys and tagging rules are organized as arrays and defined in config.h.
- *
+ * bh = drw->fonts->h + 6;  THIS LINE CHANGES SPACE AROUND FONT
  * To understand everything else, start reading main().
  */
 #include <errno.h>
