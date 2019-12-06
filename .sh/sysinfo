@@ -1,7 +1,0 @@
-#!/bin/bash
-st-arc \
--c SmartTerm \
--n Smart-Terminal \
--t 'System Information' \
--g 89x29 \
--e sh -c "archey3; pacman --version; sleep 5"
