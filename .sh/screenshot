@@ -1,4 +1,0 @@
-#!/usr/bin/bash
-cd ~/Pictures/Screenshots
-sleep 0.5
-shotgun
