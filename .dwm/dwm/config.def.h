@@ -1,7 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
 #include "push.c"
-#include "gaplessgrid.c"
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -63,6 +62,7 @@ static const Rule rules[] = {
 	{ "aft-linux-qt",  		NULL,       NULL,       1 << 6,       1,             1,           -1 },
 	{ "Pavucontrol",	        NULL,       NULL,       0 << 0,       1,             1,           -1 },
         { "SmartTerm",                  NULL,       NULL,       0 << 0,       1,             1,           -1 },
+        { "ROX-Filer",                  NULL,       NULL,       0 << 0,       1,             0,           -1 },
 };
 
 /* layout(s) */
@@ -72,10 +72,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol      arrange function */
-	{ "Grid",      gaplessgrid },       /* first entry is default */
+	{ "Tile",      tile },              /* first entry is default */
 	{ "Float",     NULL },    	    /* no layout function means floating behavior */
 	{ "Monocle",   monocle },
-	{ "Tile",      tile },
 };
 
 
@@ -103,8 +102,8 @@ static const char *ffox[]  =                 { "firefox", NULL };
 static const char *file[]  =                 { "rox", NULL };
 static const char *deadbeef[]  =             { "deadbeef", NULL };
 static const char *telegram[]  =             { "/opt/Telegram/Telegram", NULL };
-static const char *morc[] =                  { "~/.dwm/dwmenu", NULL };
-static const char *sessmgr[] =               { "~/.dwm/Session-manager", NULL }; 
+static const char *morc[] =                  { "dwmenu", NULL };
+static const char *sessmgr[] =               { "session-manager", NULL }; 
 static const char *nwmgr[] =                 { "st-arc", "-t", "Connman", "-e", "connmanctl", NULL };
 static const char *sterm[] =                 { "smart-terminal", NULL }; /* if you set a terminal with a class "SmartTerm" dwm with treat as a foating window */
 //static const char *vup[] =                  { "pactl", "set-sink-volume", "0", "+5%", NULL }; /* use it with Pulseaudio */
@@ -121,7 +120,7 @@ static const char *wpaper[] =                { "wallpaper", NULL };
 static const char *susp[] =                  { "slock", "systemctl", "suspend", "-i", NULL };
 static const char *reboot[] =                { "systemctl", "reboot", NULL };
 static const char *python[] =                { "python-shell", NULL };
-static const char *aft[] =                   { "simple-mtpfs", "~/mtpAndroid/", "-o", "allow_other", NULL };
+static const char *aft[] =                   { "mtp", NULL };
 static const char *task[] =                  { "lxtask", NULL };
 static const char *rooterm[] =               { "root-terminal", NULL };
 
@@ -158,10 +157,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
         { MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
