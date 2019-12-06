@@ -38,4 +38,4 @@ unset TERMCAP
 
 # Man is much better than us at figuring this out
 unset MANPATH
-export PATH=$PATH:$HOME/.sh
+export PATH=$PATH:$HOME/.local/bin
