@@ -1,7 +1,0 @@
-#!/bin/bash
-st-arc \
--c SmartTerm \
--n Smart-Terminal \
--t 'Reset wpa_supplicant' \
--g 40x2 \
--e sh -c "echo 'Reset Network'; sudo systemctl restart wpa_supplicant@wlan0"
