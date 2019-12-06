@@ -1,6 +1,0 @@
-#!/bin/bash
-st-arc \
--c Terminal \
--n Terminal \
--t Terminal \
-#-g 89x29
