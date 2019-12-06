@@ -1,6 +1,0 @@
-#!/bin/bash
-st-arc \
--c SmartTerm \
--n Smart-Terminal \
--t 'Record Desktop' \
--e sh -c "cd ~/Videos/; sleep 3; recdesk"
