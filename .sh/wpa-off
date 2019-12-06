@@ -1,7 +1,0 @@
-#!/bin/bash
-st-arc \
--c SmartTerm \
--n Smart-Terminal \
--t 'Turn wpa_supplicant off' \
--g 40x2 \
--e sh -c "echo 'Turn Network off'; sudo systemctl stop wpa_supplicant@wlan0"
