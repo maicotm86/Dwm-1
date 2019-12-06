@@ -1,6 +1,0 @@
-#!/bin/bash
-path="$HOME/.sh/"
-ls --color=always $path
-read -p "Choose one from above to be deleted : " app
-rm $path$app
-echo "'$app' is gone for good"
