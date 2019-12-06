@@ -1,6 +1,0 @@
-#!/bin/bash
-st \
--c SmartTerm \
--n Smart-Terminal \
--t 'Wpa Cli' \
--e sh -c "sudo wpa_cli"
