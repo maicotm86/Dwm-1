@@ -17,10 +17,18 @@ static const char col_gray2[]       = "#252730";
 static const char col_gray3[]       = "#eeeeee";
 static const char col_gray4[]       = "#dddddd";
 static const char col_cyan[]        = "#4084D6";
+static const unsigned int baralpha = 0xff;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray4, col_gray1, col_gray1 },
 	[SchemeSel]  = { col_cyan, col_gray2, col_gray2  },
+};
+
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
